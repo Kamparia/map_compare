@@ -1,120 +1,113 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Map Compare</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" type="image/x-icon" href="http://somideolaoye.com/assets/images/icon.png"/>
-		
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
+<html lang="en">
+   <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Map Compare - Developed by Somide Olaoye Anthony.</title>
 		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css" />
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.css" />
+		<link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="assets/css/isotope.css" media="screen" />
+		<link rel="stylesheet" href="assets/css/style.css">
 
-		<!-- Leaflet -->
-		<link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet/leaflet.css" />
-		<script src="http://somideolaoye.com/cdn/leaflet/leaflet.js"></script>		   
+		<!-- Load Leaflet from CDN-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
 
-        <!-- Load Esri Leaflet from CDN -->
-        <script src="http://somideolaoye.com/cdn/esri/esri_leaflet/esri-leaflet.js"></script>
+		<!-- Load Esri Leaflet from CDN -->
+		<script src="https://unpkg.com/esri-leaflet@2.0.8"></script>
 
-		<!-- Leaflet Draw -->
-		<link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/leaflet.draw/leaflet.draw.css" />
-		<script src="http://somideolaoye.com/cdn/leaflet_plugins/leaflet.draw/Leaflet.draw.js"></script>		   
-		<script src="http://somideolaoye.com/cdn/leaflet_plugins/leaflet.draw/leaflet.snap.js"></script>		   
-
-        <!-- Leaflet StyleEditor-->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/styleeditor/css/Leaflet.StyleEditor.min.css">        
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/styleeditor/js/Leaflet.StyleEditor.min.js"></script>        
-
-		<!-- FileSaver JS -->
-		<script src="http://somideolaoye.com/cdn/filesaverjs/FileSaver.min.js"></script>		   
-
-		<!-- HTML2Canvas -->
-		<script src="js/html2canvas.js"></script>		   
-		<script src="js/jspdf.js"></script>
-
-		<!-- TurfJS -->
-		<script src="http://somideolaoye.com/cdn/turfjs/turf.min.js"></script>		   
-
-        <!-- Leaflet Geocoder -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/geocoder/Control.Geocoder.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/geocoder/Control.Geocoder.js"></script>
-
-        <!-- Leaflet Geolocate -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/geolocate/L.Control.Locate.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/geolocate/L.Control.Locate.js"></script>
+		<!-- Load Esri Leaflet Geocoder from CDN -->
+		<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.4/dist/esri-leaflet-geocoder.css">
+		<script src="https://unpkg.com/esri-leaflet-geocoder@2.2.4"></script>
 
         <!-- Leaflet Mouse Position -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/mouseposition/L.Control.MousePosition.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/mouseposition/L.Control.MousePosition.js"></script>
+        <link rel="stylesheet" href="assets/plugins/mouseposition/L.Control.MousePosition.css">
+        <script src="assets/plugins/mouseposition/L.Control.MousePosition.js"></script>
 
         <!-- Leaflet Basemaps Plugin -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/basemaps/L.Control.Basemaps.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/basemaps/L.Control.Basemaps.js"></script>
+        <link rel="stylesheet" href="assets/plugins/basemaps/L.Control.Basemaps.css">
+        <script src="assets/plugins/basemaps/L.Control.Basemaps.js"></script>
 
-        <!-- Leaflet Fullscreen Plugin -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/fullscreen/Leaflet.fullscreen.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/fullscreen/Leaflet.fullscreen.min.js"></script>
-        
         <!-- Leaflet Measure Plugin -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/measure/leaflet-measure.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/measure/leaflet-measure.js"></script>
-		
-        <!-- Leaflet FileLayer -->
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/filelayer/togeojson.js"></script>        
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/filelayer/leaflet.filelayer.js"></script>
+        <link rel="stylesheet" href="assets/plugins/measure/leaflet-measure.css">
+        <script src="assets/plugins/measure/leaflet-measure.js"></script>
 
-        <!-- Leaflet EasyButton -->
-        <link rel="stylesheet" href="http://somideolaoye.com/cdn/leaflet_plugins/easybutton/easy-button.css">
-        <script src="http://somideolaoye.com/cdn/leaflet_plugins/easybutton/easy-button.js"></script>
+        <!-- Leaflet Measure Plugin -->
+        <link rel="stylesheet" href="assets/plugins/awesomemarkers/leaflet.awesome-markers.css">
+        <script src="assets/plugins/awesomemarkers/leaflet.awesome-markers.js"></script>
 
-		<!-- Style -->
-		<link rel="stylesheet" href="css/style.css" />
-		<!-- App -->
-		<script src="js/app.js"></script>
-	</head>
-	<body>
-	    <div class="navbar navbar-default navbar-fixed-top navbar-transparent">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <a href="./" class="navbar-brand">Map Compare</a>
-	          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	        </div>
-	        <div class="navbar-collapse collapse" id="navbar-main">
-	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="#" target="_blank">Fork on GitHub</a></li>
-	          </ul>
-	        </div>
-	      </div>
-	    </div>
+		<style type="text/css">
+			body {
+				margin: 0;
+				background-color: #242424;
+			}
+			.map {
+				margin-top: 0px;
+				position: fixed;
+				height: 93%;
+				width: 50%;
+			}		
+			.leaflet-container .leaflet-control-mouseposition {
+				left: 100px;
+				bottom: -32px;
+			}
 
-		<div class="map-container">
-			<div class="">
-				<div id="map1" class="map col-md-6">
-					Hello World.
+		</style>
+    </head>
+    <body>
+	    <header>
+			<div class="main-menu">
+				<div class="">
+					<div class="row">
+						<div class="col-md-4">						
+							<h1>
+								<a class="navbar-brand" href="./" data-0="line-height:90px;" data-300="line-height:50px;">
+									<!--
+									<img src="http://minusma-gis-01.minusma.dpko.un.org/app/bamako/images/logo.gif" height="30"> 
+									-->
+									Map Compare
+								</a>
+							</h1>   						
+						</div>
+
+						<div class="col-md-8" style="padding-right: 30px;">
+							<div class="dropdown">
+								<ul class="nav nav-pills">
+								    <li><a href="#">About</a></li>
+									<li class="active"><a href="#">Fork GitHub</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>				
 				</div>
-				<div id="map2" class="map col-md-6">
-					Hello World.
-				</div>				
 			</div>
-
-			<div class="">
-				<div id="map3" class="map col-md-6">
-					Hello World.
-				</div>
-				<div id="map4" class="map col-md-6">
-					Hello World.
-				</div>				
-			</div>			
+		</header>
+	    
+		<!-- column content -->
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="map" id="map-div-1"></div>				
+			</div>
+			<div class="col-sm-6" style="margin-left: -13px;">
+				<div class="map" id="map-div-2"></div>							
+			</div>
 		</div>
 
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/jquery.isotope.min.js"></script>
+		<script src="assets/js/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="assets/js/wow.min.js"></script>
+		<script src="assets/js/functions.js"></script>
+		<script src="assets/js/map.js"></script>
+
+	    <script type="text/javascript">new WOW().init();</script>    
+		
 	</body>
 </html>
